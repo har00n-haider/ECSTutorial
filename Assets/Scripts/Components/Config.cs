@@ -19,6 +19,16 @@ using Unity.Entities;
 // to stop a given thread on a breakpoint while other threads continue executing
 
 
+
+// IDEA:
+// Would be good to expand on this:
+// "Creating our own shaders (via shadergraph) and mapping custom ECS components to their inputs
+// is out of scope for this tutorial" using the starting point that the given in this tutorial.
+
+
+// QUESTION: Get the intellisense in VS working for the types used in the ECS packages (do they not have a DLL + XML somewhere)
+
+
 struct Config : IComponentData
 {
     public Entity TankPrefab;

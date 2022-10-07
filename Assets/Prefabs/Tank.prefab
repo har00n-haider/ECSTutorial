@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 7436711814294187302}
   - component: {fileID: 7436711814294187304}
   - component: {fileID: 7436711814294187305}
+  - component: {fileID: 5073276001509726404}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -115,6 +116,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5073276001509726404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7436711814294187303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b6467bcd530cd4d809fae70ea0ca9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value:
+    x: 0.5
+    y: 0.5
+    z: 0.5
+    w: 0
 --- !u!1 &7436711814506188014
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +145,7 @@ GameObject:
   - component: {fileID: 7436711814506188048}
   - component: {fileID: 7436711814506188049}
   - component: {fileID: 7436711814506188050}
+  - component: {fileID: 4664710594353946981}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -212,6 +231,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b810ca987b367b4888475e10365fcf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4664710594353946981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7436711814506188014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b6467bcd530cd4d809fae70ea0ca9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value:
+    x: 1
+    y: 0.5
+    z: 0.3
+    w: 0
 --- !u!1 &7436711814604689920
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,6 +260,7 @@ GameObject:
   - component: {fileID: 7436711814604689925}
   - component: {fileID: 7436711814604689922}
   - component: {fileID: 7436711814604689924}
+  - component: {fileID: 8980174667234195561}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -312,3 +349,20 @@ MonoBehaviour:
   CannonBallPrefab: {fileID: 7377068466847453550, guid: 48919c929e9f87945b31d23096bfe79f,
     type: 3}
   CannonBallSpawn: {fileID: 7436711813181217892}
+--- !u!114 &8980174667234195561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7436711814604689920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b6467bcd530cd4d809fae70ea0ca9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value:
+    x: 0.5
+    y: 0.5
+    z: 0.5
+    w: 0
