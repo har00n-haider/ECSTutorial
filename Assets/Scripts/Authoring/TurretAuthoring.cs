@@ -21,5 +21,8 @@ class TurretBaker : Baker<TurretAuthoring>
             CannonBallPrefab = GetEntity(authoring.CannonBallPrefab),   // reference to prefab
             CannonBallSpawn = GetEntity(authoring.CannonBallSpawn)      // QUESTION: Is this reference to the transform of a particular turret instance??
         });
+
+        // Enableable components are always initially enabled.
+        AddComponent<Shooting>();
     }
 }
