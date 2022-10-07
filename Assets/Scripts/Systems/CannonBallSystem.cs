@@ -16,6 +16,19 @@ partial struct CannonBallJob : IJobEntity
     // They are also fully deterministic, regardless of the amounts of parallel processing happening.
     // So those indices are used as a sorting key when recording commands in the EntityCommandBuffer,
     // this way we ensure that the playback of commands is always deterministic.
+
+
+    // QUESTION: What is a chunk and why do we need its index? A diagram of the above description 
+    // would help.
+
+    // ANSWER:
+    // A chunk contains a number of entities of a given archtype
+
+
+    // QUESTION: Is the chunk index the index of the chunk a given entity belongs to? OR
+    // is the the chunk index the index of the entity within the chunk?
+
+
     void Execute([ChunkIndexInQuery] int chunkIndex, ref CannonBallAspect cannonBall)
     {
         var gravity = new float3(0.0f, -9.82f, 0.0f);
@@ -31,10 +44,17 @@ partial struct CannonBallJob : IJobEntity
         cannonBall.Speed += gravity * DeltaTime;
 
         var speed = math.lengthsq(cannonBall.Speed);
-        if (speed < 0.1f) ECB.DestroyEntity(chunkIndex, cannonBall.Self);
+
+        // Condition to kill the cannonball
+        if (speed < 0.1f) ECB.DestroyEntity(chunkIndex, cannonBall.Self); 
     }
 }
 
+/// <summary>
+/// Used to move the cannon ball. The logic is done in a seperately defined job that runs in parallel.
+/// 
+/// QUESTION: How can we see that these jobs are running in parrallel? Via the profiler?
+/// </summary>
 [BurstCompile]
 partial struct CannonBallSystem : ISystem
 {
@@ -51,8 +71,9 @@ partial struct CannonBallSystem : ISystem
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
+        // QUESTION: Are ECB systems always singletons? Or maybe all systems are singletons?
         var ecbSingleton = SystemAPI.GetSingleton<EndSimulationEntityCommandBufferSystem.Singleton>();
-        var ecb = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged);
+            var ecb = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged);
         var cannonBallJob = new CannonBallJob
         {
             // Note the function call required to get a parallel writer for an EntityCommandBuffer.

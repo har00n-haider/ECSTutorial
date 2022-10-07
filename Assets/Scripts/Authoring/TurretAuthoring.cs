@@ -19,7 +19,7 @@ class TurretBaker : Baker<TurretAuthoring>
             // Given a GameObject (or authoring component), GetEntity looks up the resulting Entity.
 
             CannonBallPrefab = GetEntity(authoring.CannonBallPrefab),   // reference to prefab
-            CannonBallSpawn = GetEntity(authoring.CannonBallSpawn)      // QUESTION: reference to particular Turret instance??
+            CannonBallSpawn = GetEntity(authoring.CannonBallSpawn)      // QUESTION: Is this reference to the transform of a particular turret instance??
         });
     }
 }
